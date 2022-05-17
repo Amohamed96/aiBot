@@ -12,6 +12,8 @@ function Prompt(props) {
     presence_penalty: 0.0,
   };
 
+  const responses = [];
+
   const submitPrompt = function () {
     fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
       method: "POST",
@@ -22,11 +24,15 @@ function Prompt(props) {
       body: JSON.stringify(data),
     }).then((response) => {
       response.json().then((data) => {
-        console.log(data.choices[0]);
-        window.localStorage.setItem("responses", data.choices[0].text);
+        console.log(data);
+        responses.push(
+          window.localStorage.setItem(`${data.id}`, data.choices[0].text)
+        );
+        window.location.reload();
       });
     });
   };
+
   return (
     <div>
       Prompt
