@@ -12,7 +12,19 @@ function Prompt(props) {
     presence_penalty: 0.0,
   };
 
-  const responses = [];
+  const responses = ["RES"];
+  const record = {};
+  let count = 0;
+  let countResponses = window.localStorage.getItem(count);
+
+  function clickCounter() {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount) + 1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    // document.getElementById("demo").innerHTML = localStorage.clickcount;
+  }
 
   const submitPrompt = function () {
     fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
@@ -24,19 +36,38 @@ function Prompt(props) {
       body: JSON.stringify(data),
     }).then((response) => {
       response.json().then((data) => {
+        record.prompt = `${input}`;
+        record.response = `${data.choices[0].text}`;
         console.log(data);
-        responses.push(
-          window.localStorage.setItem(`${data.id}`, data.choices[0].text)
+        const slicedArray = data.choices[0].text.slice(0, 10);
+        // responses.push(
+        //   window.localStorage.setItem(
+        //     `${window.localStorage.getItem("clickcount")}`,
+        //     JSON.stringify(record)
+        //   )
+        // );
+        // responses.values = record;
+        window.localStorage.setItem(
+          window.localStorage.getItem("clickcount"),
+          JSON.stringify(record)
         );
+        console.log("RECORD:", record);
+        console.log("RESPONSES", responses);
         window.location.reload();
       });
     });
   };
 
+  const clickButton = function () {
+    submitPrompt();
+    clickCounter();
+  };
   return (
     <div>
       Prompt
       <div>
+        <p id="demo"></p>
+
         <div>
           {
             <input
@@ -49,7 +80,7 @@ function Prompt(props) {
             ></input>
           }
         </div>
-        <button className="btn" onClick={submitPrompt}>
+        <button className="btn" onClick={clickButton}>
           Submit
         </button>
       </div>

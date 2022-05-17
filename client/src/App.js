@@ -12,7 +12,7 @@ function App() {
     <div>
       CHAT BOT TYPE A THING AND SAY SOMETHING
       <Prompt inputHandler={inputHandler} input={inputText} />
-      <ResponseItems />
+      <ResponseItems input={inputText} />
     </div>
   );
 }
