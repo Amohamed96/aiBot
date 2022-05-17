@@ -8,11 +8,13 @@ function ResponseItems() {
   const [responses2, setResponses2] = useState("");
   const [responses3, setResponses3] = useState("");
   const [responses4, setResponses4] = useState("");
+  const [responses5, setResponses5] = useState("");
 
   const [prompts1, setPrompts1] = useState("");
   const [prompts2, setPrompts2] = useState("");
   const [prompts3, setPrompts3] = useState("");
   const [prompts4, setPrompts4] = useState("");
+  const [prompts5, setPrompts5] = useState("");
 
   useEffect(() => {
     let res1 = JSON.parse(
@@ -31,9 +33,12 @@ function ResponseItems() {
       window.localStorage.getItem(window.localStorage.getItem("clickcount") - 3)
     );
 
+    let res5 = JSON.parse(
+      window.localStorage.getItem(window.localStorage.getItem("clickcount") - 4)
+    );
+
     if (res1) {
       setResponses1(res1.response);
-      console.log(res1.responses1);
     }
 
     if (res2) {
@@ -46,6 +51,10 @@ function ResponseItems() {
 
     if (res4) {
       setResponses4(res4.response);
+    }
+
+    if (res5) {
+      setResponses5(res5.response);
     }
 
     if (res1) {
@@ -62,6 +71,10 @@ function ResponseItems() {
 
     if (res4) {
       setPrompts4("Prompt: " + res4.prompt);
+    }
+
+    if (res5) {
+      setPrompts5("Prompt: " + res5.prompt);
     }
   }, []);
   console.log(window.localStorage.getItem("clickcount"));
@@ -90,6 +103,12 @@ function ResponseItems() {
           <span class="leaderboard__name">{prompts4}</span>
           <br></br>
           <span class="leaderboard__value"> {responses4}</span>
+        </article>
+
+        <article class="leaderboard__profile">
+          <span class="leaderboard__name">{prompts5}</span>
+          <br></br>
+          <span class="leaderboard__value"> {responses5}</span>
         </article>
       </main>
     </div>

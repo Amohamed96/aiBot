@@ -25,7 +25,6 @@ function Prompt(props) {
     } else {
       localStorage.clickcount = 1;
     }
-    // document.getElementById("demo").innerHTML = localStorage.clickcount;
   }
 
   const submitPrompt = function () {
@@ -40,15 +39,6 @@ function Prompt(props) {
       response.json().then((data) => {
         record.prompt = `${input}`;
         record.response = `${data.choices[0].text}`;
-        console.log(data);
-        const slicedArray = data.choices[0].text.slice(0, 10);
-        // responses.push(
-        //   window.localStorage.setItem(
-        //     `${window.localStorage.getItem("clickcount")}`,
-        //     JSON.stringify(record)
-        //   )
-        // );
-        // responses.values = record;
         window.localStorage.setItem(
           window.localStorage.getItem("clickcount"),
           JSON.stringify(record)
