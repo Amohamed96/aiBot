@@ -9,10 +9,21 @@ function App() {
     var lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
   };
+  const [tokenText, setTokenText] = useState("");
+  let tokenHandler = (et) => {
+    var tokenVal = et.target.value;
+    setTokenText(tokenVal);
+    console.log(tokenVal);
+  };
   return (
     <div className="container">
-      <Prompt inputHandler={inputHandler} input={inputText} />
-      <ResponseItems input={inputText} />
+      <Prompt
+        inputHandler={inputHandler}
+        input={inputText}
+        tokenHandler={tokenHandler}
+        token={tokenText}
+      />
+      <ResponseItems input={inputText} token={tokenText} />
     </div>
   );
 }

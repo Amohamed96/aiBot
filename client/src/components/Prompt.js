@@ -4,20 +4,24 @@ import "./page.scss";
 function Prompt(props) {
   const [isLoading, setLoading] = useState(false);
   const inputHandle = props.inputHandler;
+  const tokenHandle = props.tokenHandler;
+
   const input = props.input;
+  const tokens = parseInt(props.token);
+
   const data = {
     prompt: input,
     temperature: 0.5,
-    max_tokens: 64,
+    max_tokens: tokens,
     top_p: 1.0,
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
   };
+  console.log("DATA: ", data);
 
   const responses = ["RES"];
   const record = {};
   let count = 0;
-  let countResponses = window.localStorage.getItem(count);
 
   function clickCounter() {
     if (localStorage.clickcount) {
@@ -75,6 +79,18 @@ function Prompt(props) {
             onChange={inputHandle}
           ></input>
         }
+        <div>
+          {
+            <input
+              type="text"
+              name="token"
+              id="token"
+              className="token-box"
+              placeholder="Response Length: Short (4-10)  Medium: (11-50)  Long: 51-1000       -      ex: 100"
+              onChange={tokenHandle}
+            ></input>
+          }
+        </div>
       </div>
       <div className="button-container">
         {" "}
