@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./page.scss";
+import REACT_APP_OPENAI_KEY from "../apiKey";
 
 function Prompt(props) {
   const [isLoading, setLoading] = useState(false);
@@ -32,7 +33,7 @@ function Prompt(props) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.REACT_APP_OPENAI_KEY}`,
+        Authorization: `Bearer ${REACT_APP_OPENAI_KEY}`,
       },
       body: JSON.stringify(data),
     }).then((response) => {
