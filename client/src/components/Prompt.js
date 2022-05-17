@@ -66,8 +66,6 @@ function Prompt(props) {
     <div>
       Prompt
       <div>
-        <p id="demo"></p>
-
         <div>
           {
             <input

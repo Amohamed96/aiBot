@@ -21,10 +21,31 @@ function ResponseItems() {
   //   setResponses(values);
   // }
   useEffect(() => {
-    setResponses1(window.localStorage.getItem("1"));
-    setResponses2(window.localStorage.getItem("2"));
-    setResponses3(window.localStorage.getItem("3"));
-    setResponses4(window.localStorage.getItem("4"));
+    let res1 = JSON.parse(window.localStorage.getItem("1"));
+
+    let res2 = JSON.parse(window.localStorage.getItem("2"));
+
+    let res3 = JSON.parse(window.localStorage.getItem("3"));
+
+    let res4 = JSON.parse(window.localStorage.getItem("4"));
+
+    if (res1) {
+      setResponses1("Prompt: " + res1.prompt + "Response: " + res1.response);
+    }
+
+    if (res2) {
+      setResponses2("Prompt: " + res2.prompt + "Response: " + res2.response);
+    }
+
+    if (res3) {
+      setResponses3(
+        "Prompt: " + res3.prompt + "/n" + "Response: " + res3.response
+      );
+    }
+
+    if (res4) {
+      setResponses4("Prompt: " + res4.prompt + "Response: " + res4.response);
+    }
   }, []);
 
   return (
