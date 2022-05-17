@@ -1,7 +1,9 @@
 .leaderboard {
   max-width: 490px;
+  min-width: 56rem;
   width: 100%;
   border-radius: 12px;
+  padding: 10px;
 
   header {
     --start: 15%;
@@ -68,8 +70,6 @@
   }
 
   &__profile {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
     align-items: center;
     padding: 10px 30px 10px 10px;
     overflow: hidden;
@@ -104,8 +104,9 @@
   &__value {
     color: #35d8ac;
     font-weight: 700;
-    font-size: 34px;
+    font-size: 20px;
     text-align: right;
+    margin-left: 12px;
 
     & > span {
       opacity: 0.8;
@@ -129,4 +130,45 @@ body {
 
 .leaderboard {
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 500px;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  background-color: #5b7cfa;
+}
+button:hover {
+  background-color: #3659db;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 6px solid #cef;
+  border-color: #cef transparent #cef transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

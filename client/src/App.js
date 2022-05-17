@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Prompt from "./components/Prompt";
 import ResponseItems from "./components/ResponseItems";
+import "./App.css";
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -9,8 +10,7 @@ function App() {
     setInputText(lowerCase);
   };
   return (
-    <div>
-      CHAT BOT TYPE A THING AND SAY SOMETHING
+    <div className="container">
       <Prompt inputHandler={inputHandler} input={inputText} />
       <ResponseItems input={inputText} />
     </div>

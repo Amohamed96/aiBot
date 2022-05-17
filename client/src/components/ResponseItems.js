@@ -9,17 +9,11 @@ function ResponseItems() {
   const [responses3, setResponses3] = useState("");
   const [responses4, setResponses4] = useState("");
 
-  // function allStorage() {
-  //   var values = [],
-  //     keys = Object.keys(localStorage),
-  //     i = keys.length;
+  const [prompts1, setPrompts1] = useState("");
+  const [prompts2, setPrompts2] = useState("");
+  const [prompts3, setPrompts3] = useState("");
+  const [prompts4, setPrompts4] = useState("");
 
-  //   while (i--) {
-  //     values.push(localStorage.getItem(re));
-  //   }
-  //   console.log(responses);
-  //   setResponses(values);
-  // }
   useEffect(() => {
     let res1 = JSON.parse(window.localStorage.getItem("1"));
 
@@ -30,88 +24,66 @@ function ResponseItems() {
     let res4 = JSON.parse(window.localStorage.getItem("4"));
 
     if (res1) {
-      setResponses1("Prompt: " + res1.prompt + "Response: " + res1.response);
+      setResponses1("Response: " + res1.response);
+      console.log(res1.responses1);
     }
 
     if (res2) {
-      setResponses2("Prompt: " + res2.prompt + "Response: " + res2.response);
+      setResponses2("Response: " + res2.response);
     }
 
     if (res3) {
-      setResponses3(
-        "Prompt: " + res3.prompt + "/n" + "Response: " + res3.response
-      );
+      setResponses3("Response: " + res3.response);
     }
 
     if (res4) {
-      setResponses4("Prompt: " + res4.prompt + "Response: " + res4.response);
+      setResponses4("Response: " + res4.response);
+    }
+
+    if (res1) {
+      setPrompts1("Prompt: " + res1.prompt);
+    }
+
+    if (res2) {
+      setPrompts2("Prompt: " + res2.prompt);
+    }
+
+    if (res3) {
+      setPrompts3("Prompt: " + res3.prompt);
+    }
+
+    if (res4) {
+      setPrompts4("Prompt: " + res4.prompt);
     }
   }, []);
-
+  console.log(window.localStorage.getItem("clickcount"));
   return (
-    <div>
-      <div>
-        Responses
-        <div className="responses">{responses1}</div>
-      </div>
-      <div class="leaderboard">
-        <header>
-          <h1 class="leaderboard__title">
-            <span class="leaderboard__title--top">Forbes</span>
-            <span class="leaderboard__title--bottom">Leaderboard</span>
-          </h1>
-        </header>
+    <div class="leaderboard">
+      <main class="leaderboard__profiles">
+        <article class="leaderboard__profile">
+          <span class="leaderboard__name">{prompts1}</span>
+          <br></br>
+          <span class="leaderboard__value"> {responses1}</span>
+        </article>
 
-        <main class="leaderboard__profiles">
-          <article class="leaderboard__profile">
-            <img
-              src="https://randomuser.me/api/portraits/men/32.jpg"
-              alt="Mark Zuckerberg"
-              class="leaderboard__picture"
-            />
-            <span class="leaderboard__name">{responses1}</span>
-            <span class="leaderboard__value">
-              35.7<span>B</span>
-            </span>
-          </article>
+        <article class="leaderboard__profile">
+          <span class="leaderboard__name">{prompts2}</span>
+          <br></br>
+          <span class="leaderboard__value"> {responses2}</span>
+        </article>
 
-          <article class="leaderboard__profile">
-            <img
-              src="https://randomuser.me/api/portraits/men/97.jpg"
-              alt="Dustin Moskovitz"
-              class="leaderboard__picture"
-            />
-            <span class="leaderboard__name">{responses2}</span>
-            <span class="leaderboard__value">
-              9.9<span>B</span>
-            </span>
-          </article>
+        <article class="leaderboard__profile">
+          <span class="leaderboard__name">{prompts3}</span>
+          <br></br>
+          <span class="leaderboard__value"> {responses3}</span>
+        </article>
 
-          <article class="leaderboard__profile">
-            <img
-              src="https://randomuser.me/api/portraits/women/17.jpg"
-              alt="Elizabeth Holmes"
-              class="leaderboard__picture"
-            />
-            <span class="leaderboard__name">{responses3}</span>
-            <span class="leaderboard__value">
-              4.5<span>B</span>
-            </span>
-          </article>
-
-          <article class="leaderboard__profile">
-            <img
-              src="https://randomuser.me/api/portraits/men/37.jpg"
-              alt="Evan Spiegel"
-              class="leaderboard__picture"
-            />
-            <span class="leaderboard__name">{responses4}</span>
-            <span class="leaderboard__value">
-              2.1<span>B</span>
-            </span>
-          </article>
-        </main>
-      </div>
+        <article class="leaderboard__profile">
+          <span class="leaderboard__name">{prompts4}</span>
+          <br></br>
+          <span class="leaderboard__value"> {responses4}</span>
+        </article>
+      </main>
     </div>
   );
 }

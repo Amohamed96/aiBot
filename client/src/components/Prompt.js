@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import "./page.scss";
 
 function Prompt(props) {
+  const [isLoading, setLoading] = useState(false);
   const inputHandle = props.inputHandler;
   const input = props.input;
   const data = {
@@ -59,29 +61,34 @@ function Prompt(props) {
   };
 
   const clickButton = function () {
+    setLoading(true);
     submitPrompt();
     clickCounter();
   };
   return (
-    <div>
-      Prompt
+    <div class="leaderboard">
+      <header>
+        <h1 class="leaderboard__title">
+          <span class="leaderboard__title--top">Genos</span>
+          <span class="leaderboard__title--bottom">Your personal AI</span>
+        </h1>
+      </header>
       <div>
-        <div>
-          {
-            <input
-              type="text"
-              name="searchBar"
-              id="searchBar"
-              className="prompt-box"
-              placeholder="Give Genos a prompt"
-              onChange={inputHandle}
-            ></input>
-          }
-        </div>
-        <button className="btn" onClick={clickButton}>
-          Submit
-        </button>
+        {
+          <input
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            className="prompt-box"
+            placeholder="Give Genos a prompt"
+            onChange={inputHandle}
+          ></input>
+        }
       </div>
+      <button className="btn" onClick={clickButton}>
+        Submit
+      </button>
+      {isLoading ? <div class="lds-dual-ring"></div> : ""}
     </div>
   );
 }
