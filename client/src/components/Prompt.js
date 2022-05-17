@@ -65,6 +65,7 @@ function Prompt(props) {
     submitPrompt();
     clickCounter();
   };
+
   return (
     <div class="leaderboard">
       <header>
@@ -85,10 +86,13 @@ function Prompt(props) {
           ></input>
         }
       </div>
-      <button className="btn" onClick={clickButton}>
-        Submit
-      </button>
-      {isLoading ? <div class="lds-dual-ring"></div> : ""}
+      <div className="button-container">
+        {" "}
+        <button className="btn" onClick={clickButton}>
+          Submit
+        </button>
+        {isLoading ? <div class="lds-dual-ring"></div> : ""}
+      </div>
     </div>
   );
 }

@@ -15,29 +15,37 @@ function ResponseItems() {
   const [prompts4, setPrompts4] = useState("");
 
   useEffect(() => {
-    let res1 = JSON.parse(window.localStorage.getItem("1"));
+    let res1 = JSON.parse(
+      window.localStorage.getItem(window.localStorage.getItem("clickcount"))
+    );
 
-    let res2 = JSON.parse(window.localStorage.getItem("2"));
+    let res2 = JSON.parse(
+      window.localStorage.getItem(window.localStorage.getItem("clickcount") - 1)
+    );
 
-    let res3 = JSON.parse(window.localStorage.getItem("3"));
+    let res3 = JSON.parse(
+      window.localStorage.getItem(window.localStorage.getItem("clickcount") - 2)
+    );
 
-    let res4 = JSON.parse(window.localStorage.getItem("4"));
+    let res4 = JSON.parse(
+      window.localStorage.getItem(window.localStorage.getItem("clickcount") - 3)
+    );
 
     if (res1) {
-      setResponses1("Response: " + res1.response);
+      setResponses1(res1.response);
       console.log(res1.responses1);
     }
 
     if (res2) {
-      setResponses2("Response: " + res2.response);
+      setResponses2(res2.response);
     }
 
     if (res3) {
-      setResponses3("Response: " + res3.response);
+      setResponses3(res3.response);
     }
 
     if (res4) {
-      setResponses4("Response: " + res4.response);
+      setResponses4(res4.response);
     }
 
     if (res1) {
