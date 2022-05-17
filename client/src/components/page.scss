@@ -1,26 +1,31 @@
+body {
+  margin: 0;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #ffffff;
+}
+
 .leaderboard {
   max-width: 490px;
   min-width: 56rem;
   width: 100%;
   border-radius: 12px;
   padding: 10px;
+  background-color: #cccccc;
+  margin-bottom: 1rem;
+  background-image: url("https://wallpaper.dog/large/988057.jpg");
 
   header {
     --start: 15%;
 
     height: 130px;
-    background-image: repeating-radial-gradient(
-        circle at var(--start),
-        transparent 0%,
-        transparent 10%,
-        rgba(54, 89, 219, 0.33) 10%,
-        rgba(54, 89, 219, 0.33) 17%
-      ),
-      linear-gradient(to right, #5b7cfa, #3659db);
     color: #fff;
     position: relative;
     border-radius: 12px 12px 0 0;
     overflow: hidden;
+    background-color: #00000060;
 
     .leaderboard__title {
       position: absolute;
@@ -119,15 +124,6 @@
 
 // bare minimuu styles
 
-body {
-  margin: 0;
-  background-color: #eaeaea;
-  display: grid;
-  height: 100vh;
-  place-items: center;
-  font-family: "Source Sans Pro", sans-serif;
-}
-
 .leaderboard {
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
 }
@@ -143,7 +139,7 @@ button {
   margin: 10px;
   border-radius: 10px;
   font-weight: 700;
-  background-color: #5b7cfa;
+  background-color: #ffffff;
 }
 button:hover {
   background-color: #3659db;
@@ -172,4 +168,10 @@ button:hover {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.git-logo {
+  color: rgb(194, 194, 194);
+  font-size: 20px;
+  margin: 20px;
 }

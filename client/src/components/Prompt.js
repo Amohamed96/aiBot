@@ -5,7 +5,6 @@ function Prompt(props) {
   const [isLoading, setLoading] = useState(false);
   const inputHandle = props.inputHandler;
   const tokenHandle = props.tokenHandler;
-
   const input = props.input;
   const tokens = parseInt(props.token);
 
@@ -17,7 +16,6 @@ function Prompt(props) {
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
   };
-  console.log("DATA: ", data);
 
   const responses = ["RES"];
   const record = {};
@@ -36,7 +34,7 @@ function Prompt(props) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${"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"}`,
+        Authorization: `Bearer ${process.env.REACT_APP_OPENAI_KEY}`,
       },
       body: JSON.stringify(data),
     }).then((response) => {
@@ -47,8 +45,6 @@ function Prompt(props) {
           window.localStorage.getItem("clickcount"),
           JSON.stringify(record)
         );
-        console.log("RECORD:", record);
-        console.log("RESPONSES", responses);
         window.location.reload();
       });
     });
@@ -62,12 +58,18 @@ function Prompt(props) {
 
   return (
     <div class="leaderboard">
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      ></link>
       <header>
         <h1 class="leaderboard__title">
           <span class="leaderboard__title--top">Genos</span>
           <span class="leaderboard__title--bottom">Your personal AI</span>
         </h1>
-        <a href="github.com/Amohamed96/aiBot">GitHub</a>
+        <a className="git-logo" href="https://github.com/Amohamed96/aiBot">
+          <i className="fa fa-github">gitHub</i>
+        </a>
       </header>
       <div>
         {
@@ -76,7 +78,7 @@ function Prompt(props) {
             name="searchBar"
             id="searchBar"
             className="prompt-box"
-            placeholder="Give Genos a prompt"
+            placeholder="Give Genos a prompt  -  ex: Write a poem about casts or Tell me a joke"
             onChange={inputHandle}
           ></input>
         }

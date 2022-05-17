@@ -77,7 +77,6 @@ function ResponseItems() {
       setPrompts5("Prompt: " + res5.prompt);
     }
   }, []);
-  console.log(window.localStorage.getItem("clickcount"));
   return (
     <div class="leaderboard">
       <main class="leaderboard__profiles">

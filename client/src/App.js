@@ -13,7 +13,6 @@ function App() {
   let tokenHandler = (et) => {
     var tokenVal = et.target.value;
     setTokenText(tokenVal);
-    console.log(tokenVal);
   };
   return (
     <div className="container">
