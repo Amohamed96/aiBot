@@ -1,4 +1,0 @@
-const REACT_APP_OPENAI_KEY =
-  "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";
-
-export default REACT_APP_OPENAI_KEY;
