@@ -67,6 +67,7 @@ function Prompt(props) {
           <span class="leaderboard__title--top">Genos</span>
           <span class="leaderboard__title--bottom">Your personal AI</span>
         </h1>
+        <a href="github.com/Amohamed96/aiBot">GitHub</a>
       </header>
       <div>
         {
