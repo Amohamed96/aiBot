@@ -17,9 +17,7 @@ function Prompt(props) {
     presence_penalty: 0.0,
   };
 
-  const responses = ["RES"];
   const record = {};
-  let count = 0;
 
   function clickCounter() {
     if (localStorage.clickcount) {
