@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./page.scss";
 import REACT_APP_OPENAI_KEY from "../apiKey";
-console.log(REACT_APP_OPENAI_KEY);
 function Prompt(props) {
   const [isLoading, setLoading] = useState(false);
   const inputHandle = props.inputHandler;
