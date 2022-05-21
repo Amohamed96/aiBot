@@ -22,7 +22,6 @@ function App() {
         tokenHandler={tokenHandler}
         token={tokenText}
       />
-      <ResponseItems input={inputText} token={tokenText} />
     </div>
   );
 }

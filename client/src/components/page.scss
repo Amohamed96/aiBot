@@ -17,6 +17,11 @@ body {
   margin-bottom: 1rem;
   background-image: url("https://wallpaper.dog/large/988057.jpg");
 
+  .responses {
+    background-color: yellow;
+    background-image: url("https://wallpaper.dog/large/988057.jpg");
+  }
+
   header {
     --start: 15%;
 
@@ -83,7 +88,8 @@ body {
     cursor: pointer;
     transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98),
       box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
 
     &:hover {
       transform: scale(1.2);
@@ -141,6 +147,10 @@ button {
   font-weight: 700;
   background-color: #ffffff;
 }
+
+button.selected {
+  background-color: #3659db;
+}
 button:hover {
   background-color: #3659db;
 }
@@ -153,7 +163,7 @@ button:hover {
 .lds-dual-ring:after {
   content: " ";
   display: block;
-  margin-top: 3rem;
+  margin-top: 1rem;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -174,4 +184,18 @@ button:hover {
   color: rgb(194, 194, 194);
   font-size: 20px;
   margin: 20px;
+}
+
+.text {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 3.55px;
+  transform: translateY(-2px);
+}
+
+.submit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
